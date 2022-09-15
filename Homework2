@@ -1,0 +1,44 @@
+-- 1. отсортируй данные по зарплате 
+SELECT * FROM EMPLOYEE ORDER BY salary;
+
+-- 2. отсортируй данные по зарплате от большего к меньшему
+SELECT * FROM EMPLOYEE ORDER BY salary DESC;
+
+-- 3. выведи первые 3 строчки таблицы
+SELECT * FROM EMPLOYEE LIMIT 3;
+
+-- 4. выведи последние 3 строчки таблицы
+SELECT * FROM EMPLOYEE ORDER BY empId DESC LIMIT 3;
+
+-- 5. выведи данные, где в названии отделов встречается буква “t”
+SELECT * FROM EMPLOYEE 
+WHERE dept LIKE "%t%";
+
+-- 6. подсчитай длину названия отдела “Management”
+SELECT dept, length(dept) FROM EMPLOYEE 
+WHERE dept = "Management";
+
+-- 7. подсчитай сумму всех зарплат сотрудников
+SELECT sum(salary) FROM EMPLOYEE;
+
+-- 8. узнай среднюю зарплату сотрудников
+SELECT avg(salary) FROM EMPLOYEE;
+
+-- 9. округли среднюю зарплату сотрудников
+SELECT round(avg(salary)) FROM EMPLOYEE;
+
+-- 10. узнай минимальную и максимальную зарплату
+SELECT min(salary), max(salary) FROM EMPLOYEE;
+
+-- 11. подсчитай количество сотрудников
+SELECT count(*) FROM EMPLOYEE;
+
+-- 12. выведи количество сотрудников в каждом отделе
+SELECT dept, count(*) FROM EMPLOYEE SELECT dept FROM EMPLOYEE
+WHERE salary > 40000
+GROUP BY dept;;
+
+-- 13. выведи отделы, где минимальная зарплата больше 40 000
+SELECT dept FROM EMPLOYEE
+WHERE salary > 40000
+GROUP BY dept;
