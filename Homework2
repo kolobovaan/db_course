@@ -34,11 +34,9 @@ SELECT min(salary), max(salary) FROM EMPLOYEE;
 SELECT count(*) FROM EMPLOYEE;
 
 -- 12. выведи количество сотрудников в каждом отделе
-SELECT dept, count(*) FROM EMPLOYEE SELECT dept FROM EMPLOYEE
-WHERE salary > 40000
-GROUP BY dept;;
+SELECT dept, count(*) FROM EMPLOYEE
+GROUP BY dept;
 
 -- 13. выведи отделы, где минимальная зарплата больше 40 000
-SELECT dept FROM EMPLOYEE
-WHERE salary > 40000
-GROUP BY dept;
+SELECT dept, salary FROM EMPLOYEE
+HAVING salary > 40000;
