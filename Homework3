@@ -1,0 +1,22 @@
+-- Задание 6. Какие компании совершали перелеты на Boeing
+SELECT name FROM Company
+WHERE id IN 
+(SELECT company FROM Trip
+WHERE plane = 'boeing');
+
+-- Задание 14. В какие города летал Bruce Willis
+SELECT town_to FROM Trip
+JOIN Pass_in_trip
+ON Trip.id = Pass_in_trip.trip
+JOIN Passenger
+ON Pass_in_trip.passenger = Passenger.id
+WHERE name = 'Bruce Willis';
+
+-- Задание 29. Выведите имена пассажиров улетевших в Москву (Moscow) на самолете TU-134
+SELECT DISTINCT name FROM Passenger
+JOIN Pass_in_trip
+ON Pass_in_trip.passenger = Passenger.id 
+JOIN Trip
+ON Trip.id = Pass_in_trip.trip 
+WHERE plane = 'TU-134'
+AND town_to = 'Moscow';
